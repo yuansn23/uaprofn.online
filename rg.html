@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
+            --primary-blue: #2563EB;
+            --secondary-blue: #1E40AF;
+            --light-blue: #DBEAFE;
             --primary-yellow: #F3CB29;
-            --secondary-yellow: #F5D14C;
-            --light-yellow: #FBE9A0;
-            --dark-yellow: #D9B322;
+            --secondary-yellow: #EAB308;
+            --light-yellow: #FEF9C3;
+            --gray-text: #4B5563;
+            --dark-text: #111827;
             --line-green: #06C755;
-            --dark-blue: #1A237E;
-            --light-blue: #E8EAF6;
-            --gray-text: #616161;
-            --dark-text: #212121;
         }
         
         * {
@@ -27,7 +27,7 @@
         }
         
         body {
-            background-color: #FFF;
+            background-color: #FFFFFF;
             color: var(--dark-text);
             line-height: 1.6;
             overflow-x: hidden;
@@ -83,8 +83,8 @@
         }
         
         .hero-section {
-            background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
-            color: #333;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-yellow));
+            color: white;
             padding: 80px 0;
             position: relative;
             overflow: hidden;
@@ -108,22 +108,24 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
+            gap: 40px;
         }
         
         .hero-text {
             flex: 1;
             min-width: 300px;
-            padding-right: 20px;
         }
         
         .hero-image {
             flex: 1;
             min-width: 300px;
-            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
         }
         
         .hero-image img {
-            max-width: 100%;
+            width: 100%;
+            height: auto;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
@@ -138,7 +140,6 @@
             font-weight: 900;
             margin-bottom: 20px;
             line-height: 1.2;
-            color: #333;
         }
         
         @keyframes typing {
@@ -153,7 +154,7 @@
         .typing-effect {
             display: inline-block;
             overflow: hidden;
-            border-right: 3px solid rgba(51, 51, 51, 0.5);
+            border-right: 3px solid rgba(255, 255, 255, 0.7);
             white-space: nowrap;
             margin: 0 auto;
             letter-spacing: 0.1em;
@@ -166,11 +167,10 @@
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 30px;
-            color: #333;
         }
         
         .highlight {
-            background-color: rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.2);
             padding: 3px 6px;
             border-radius: 4px;
             font-weight: 500;
@@ -202,13 +202,13 @@
         }
         
         .btn-outline {
-            background-color: transparent;
-            color: #333;
-            border: 2px solid #333;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid white;
         }
         
         .btn-outline:hover {
-            background-color: rgba(51, 51, 51, 0.1);
+            background-color: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
         }
         
@@ -226,7 +226,7 @@
             text-align: center;
             margin-bottom: 50px;
             position: relative;
-            color: #333;
+            color: var(--dark-text);
         }
         
         .section-title::after {
@@ -237,86 +237,101 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-yellow), var(--dark-yellow));
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
             border-radius: 2px;
         }
         
         .benchmarks {
-            background-color: #f9f9f9;
+            background-color: #F9FAFB;
             padding: 80px 0;
+            position: relative;
         }
         
-        .benchmarks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .benchmark-card {
-            background-color: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .benchmarks::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="2" cy="2" r="1" fill="%232563EB" opacity="0.05"/></svg>');
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+        
+        .benchmark-container {
+            margin-top: 60px;
+        }
+        
+        .benchmark-row {
             display: flex;
-            flex-direction: column;
+            margin-bottom: 50px;
+            position: relative;
         }
         
-        .benchmark-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        .benchmark-row:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-blue), var(--primary-yellow), transparent);
         }
         
-        .benchmark-header {
-            background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
-            color: #333;
-            padding: 20px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .benchmark-icon {
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255, 255, 255, 0.3);
+        .benchmark-number {
+            flex: 0 0 60px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-yellow));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
             font-size: 24px;
+            font-weight: 700;
+            margin-right: 30px;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
         }
         
-        .benchmark-body {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        .benchmark-content {
+            flex: 1;
         }
         
         .benchmark-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 15px;
-            color: #333;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+        
+        .benchmark-title i {
+            margin-right: 10px;
+            color: var(--primary-yellow);
+            font-size: 1.2rem;
         }
         
         .benchmark-desc {
             color: var(--gray-text);
             margin-bottom: 20px;
-            flex-grow: 1;
+            line-height: 1.7;
         }
         
         .benchmark-explanation {
-            background-color: var(--light-yellow);
+            background-color: var(--light-blue);
+            border-left: 4px solid var(--primary-blue);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 0 8px 8px 0;
             position: relative;
-            margin-top: auto;
+        }
+        
+        .benchmark-explanation p {
+            color: var(--dark-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
         
         .benchmark-explanation::before {
@@ -324,16 +339,16 @@
             position: absolute;
             top: -10px;
             left: 15px;
-            background-color: var(--dark-yellow);
-            color: #333;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
+            color: white;
             padding: 3px 12px;
-            border-radius: 50px;
+            border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 700;
         }
         
         .community {
-            background: linear-gradient(135deg, #FFF, #FFF8E1);
+            background: linear-gradient(to bottom, #F9FAFB, white);
             padding: 80px 0;
         }
         
@@ -355,24 +370,37 @@
             max-width: 380px;
             text-align: center;
             transition: transform 0.3s ease;
-            border-top: 5px solid var(--primary-yellow);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
         }
         
         .benefit-card:hover {
             transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .benefit-icon {
             width: 80px;
             height: 80px;
-            background-color: var(--light-yellow);
+            background: linear-gradient(135deg, var(--light-blue), var(--light-yellow));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 25px;
-            color: #333;
-            font-size: 34px;
+            color: var(--primary-blue);
+            font-size: 32px;
         }
         
         .benefit-title {
@@ -390,8 +418,8 @@
         .cta-section {
             text-align: center;
             padding: 70px 0;
-            background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
-            color: #333;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-yellow));
+            color: white;
             margin-top: 0;
         }
         
@@ -410,7 +438,7 @@
         }
         
         .footer {
-            background-color: #f5f5f5;
+            background-color: #F9FAFB;
             padding: 60px 0 40px;
             color: var(--gray-text);
         }
@@ -419,9 +447,9 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 25px;
-            background-color: #FFF;
+            background-color: white;
             border-radius: 12px;
-            border-left: 5px solid var(--primary-yellow);
+            border-left: 5px solid var(--primary-blue);
             margin-bottom: 40px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
         }
@@ -447,8 +475,11 @@
             }
             
             .hero-text {
-                padding-right: 0;
-                margin-bottom: 30px;
+                text-align: center;
+            }
+            
+            .hero-image {
+                max-width: 100%;
             }
             
             .main-heading {
@@ -467,8 +498,28 @@
                 min-width: 100%;
             }
             
-            .benchmarks-grid {
-                grid-template-columns: 1fr;
+            .benchmark-row {
+                flex-direction: column;
+            }
+            
+            .benchmark-number {
+                margin-bottom: 15px;
+                margin-right: 0;
+                align-self: flex-start;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-heading {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .hero-section {
+                padding: 60px 0;
             }
         }
         
@@ -505,19 +556,6 @@
             margin-right: 8px;
             font-size: 1.2rem;
         }
-        
-        .number-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            background-color: rgba(255, 255, 255, 0.25);
-            border-radius: 50%;
-            margin-right: 10px;
-            font-weight: 700;
-            font-size: 1rem;
-        }
     </style>
 </head>
 <body>
@@ -547,7 +585,7 @@
                     <p class="sub-heading">
                         投資で成功するには、<span class="highlight">市場の仕組み</span>と<span class="highlight">日本特有の投資環境</span>を理解することが不可欠です。
                     </p>
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
                         <button class="btn btn-line" onclick="opensite()">
                             <i class="fab fa-line"></i> 投資コミュニティに参加
                         </button>
@@ -557,7 +595,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://www.uypro.online/27.jpg" alt="日本株投資認知基準" width="500">
+                    <img src="https://www.uypro.online/27.jpg" alt="日本株投資認知基準" srcset="https://www.uypro.online/27.jpg 1200w" sizes="(max-width: 768px) 100vw, 500px">
                 </div>
             </div>
         </div>
@@ -567,20 +605,18 @@
     <section class="benchmarks">
         <div class="container">
             <h2 class="section-title">日本株投資 五大認知基準</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: #555;">
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 20px; color: var(--gray-text);">
                 プロの投資家が実践する5つの重要な認知基準を理解することで、より賢明な投資判断ができるようになります。
             </p>
             
-            <div class="benchmarks-grid">
-                <div class="benchmark-card">
-                    <div class="benchmark-header">
-                        <span>認知基準 1</span>
-                        <div class="benchmark-icon">
+            <div class="benchmark-container">
+                <div class="benchmark-row">
+                    <div class="benchmark-number">1</div>
+                    <div class="benchmark-content">
+                        <h3 class="benchmark-title">
                             <i class="fas fa-chart-line"></i>
-                        </div>
-                    </div>
-                    <div class="benchmark-body">
-                        <h3 class="benchmark-title">市場機制、市場非対称有効性</h3>
+                            市場機制、市場非対称有効性
+                        </h3>
                         <p class="benchmark-desc">日本市場における情報の流れと価格反映には、企業規模によって大きな違いがあります。この非対称性を理解することで、投資タイミングの精度を高めることができます。</p>
                         <div class="benchmark-explanation">
                             <p>「大公司の株価は新しい情報を素早く消化します（例えば、トヨタの決算発表）。しかし、中小型企業では情報が株価に反映されるまでに最大48時間の認識遅延が発生することがあります。」</p>
@@ -588,15 +624,13 @@
                     </div>
                 </div>
                 
-                <div class="benchmark-card">
-                    <div class="benchmark-header">
-                        <span>認知基準 2</span>
-                        <div class="benchmark-icon">
+                <div class="benchmark-row">
+                    <div class="benchmark-number">2</div>
+                    <div class="benchmark-content">
+                        <h3 class="benchmark-title">
                             <i class="fas fa-shield-alt"></i>
-                        </div>
-                    </div>
-                    <div class="benchmark-body">
-                        <h3 class="benchmark-title">リスク管理、リスク補償閾値法則</h3>
+                            リスク管理、リスク補償閾値法則
+                        </h3>
                         <p class="benchmark-desc">投資におけるリスクとリターンのバランスは、特に日本市場では独特の法則に従います。効果的なリスク管理は、長期的な投資成功の鍵となります。</p>
                         <div class="benchmark-explanation">
                             <p>「変動性の高い株を買うことは、高額な保険料を支払うようなものです。日本株では、1%の追加的な価格変動に対して、2.3%の追加リターンが必要になります（自動車保険で高リスクには高い保険料が必要なのと同じです）。」</p>
@@ -604,15 +638,13 @@
                     </div>
                 </div>
                 
-                <div class="benchmark-card">
-                    <div class="benchmark-header">
-                        <span>認知基準 3</span>
-                        <div class="benchmark-icon">
+                <div class="benchmark-row">
+                    <div class="benchmark-number">3</div>
+                    <div class="benchmark-content">
+                        <h3 class="benchmark-title">
                             <i class="fas fa-brain"></i>
-                        </div>
-                    </div>
-                    <div class="benchmark-body">
-                        <h3 class="benchmark-title">行動金融学、日本特有の三要素モデル</h3>
+                            行動金融学、日本特有の三要素モデル
+                        </h3>
                         <p class="benchmark-desc">日本市場特有の投資家行動パターンを理解することで、より合理的な投資判断が可能になります。</p>
                         <div class="benchmark-explanation">
                             <p>「日本株投資では、同時に三要素を考慮する必要があります：企業規模、株価の割安度、そして円相場の影響（寿司を作る際の魚、米、わさびのバランスを取るようなものです）。」</p>
@@ -620,15 +652,13 @@
                     </div>
                 </div>
                 
-                <div class="benchmark-card">
-                    <div class="benchmark-header">
-                        <span>認知基準 4</span>
-                        <div class="benchmark-icon">
+                <div class="benchmark-row">
+                    <div class="benchmark-number">4</div>
+                    <div class="benchmark-content">
+                        <h3 class="benchmark-title">
                             <i class="fas fa-database"></i>
-                        </div>
-                    </div>
-                    <div class="benchmark-body">
-                        <h3 class="benchmark-title">データ分析、流動性階層法則</h3>
+                            データ分析、流動性階層法則
+                        </h3>
                         <p class="benchmark-desc">株式の流動性は投資の成否を左右する重要な要素です。日本市場における流動性の階層構造を理解することが重要です。</p>
                         <div class="benchmark-explanation">
                             <p>「コンビニの商品棚のようなものです。人気株（ソニーなど）はいつでも簡単に売買できますが、人気のない株（地方銀行など）は売りたい時に買い手が見つからないことがあります。」</p>
@@ -636,15 +666,13 @@
                     </div>
                 </div>
                 
-                <div class="benchmark-card">
-                    <div class="benchmark-header">
-                        <span>認知基準 5</span>
-                        <div class="benchmark-icon">
+                <div class="benchmark-row">
+                    <div class="benchmark-number">5</div>
+                    <div class="benchmark-content">
+                        <h3 class="benchmark-title">
                             <i class="fas fa-chess"></i>
-                        </div>
-                    </div>
-                    <div class="benchmark-body">
-                        <h3 class="benchmark-title">長期戦略、政策伝達サイクル</h3>
+                            長期戦略、政策伝達サイクル
+                        </h3>
                         <p class="benchmark-desc">政府の政策変更は様々なセクターに異なる影響を与えます。この伝達メカニズムを理解することで、政策変更に伴う投資機会を見極めることができます。</p>
                         <div class="benchmark-explanation">
                             <p>「政策感応度のランキング：金融株 ＞ 消費株 ＞ テクノロジー株」</p>
@@ -700,7 +728,7 @@
             
             <div style="text-align: center;">
                 <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 20px;">
-                    すでに<span style="font-weight: 700; color: #333; background-color: var(--primary-yellow); padding: 2px 8px; border-radius: 4px;">5,230名</span>の投資家が参加しています
+                    すでに<span style="font-weight: 700; color: white; background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow)); padding: 3px 10px; border-radius: 4px;">5,230名</span>の投資家が参加しています
                 </p>
                 <button class="btn btn-line" onclick="opensite()" style="font-size: 1.1rem; padding: 15px 30px;">
                     <i class="fab fa-line"></i> 無料のLINEコミュニティに参加する
