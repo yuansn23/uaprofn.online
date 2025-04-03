@@ -121,14 +121,17 @@
             min-width: 300px;
             max-width: 500px;
             margin: 0 auto;
+            text-align: center;
         }
         
         .hero-image img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
+            display: block;
+            margin: 0 auto;
         }
         
         .hero-image img:hover {
@@ -476,10 +479,18 @@
             
             .hero-text {
                 text-align: center;
+                padding: 0;
+                margin-bottom: 20px;
             }
             
             .hero-image {
-                max-width: 100%;
+                width: 100%;
+                max-width: 340px;
+            }
+            
+            .hero-image img {
+                width: 100%;
+                object-fit: contain;
             }
             
             .main-heading {
@@ -519,7 +530,11 @@
             }
             
             .hero-section {
-                padding: 60px 0;
+                padding: 50px 0;
+            }
+            
+            .hero-content {
+                gap: 25px;
             }
         }
         
@@ -595,7 +610,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://www.uypro.online/27.jpg" alt="日本株投資認知基準" srcset="https://www.uypro.online/27.jpg 1200w" sizes="(max-width: 768px) 100vw, 500px">
+                    <img src="https://www.uypro.online/27.jpg" alt="日本株投資認知基準">
                 </div>
             </div>
         </div>
