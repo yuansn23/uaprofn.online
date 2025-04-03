@@ -1,1 +1,690 @@
-1
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>日本株投資の認知基準 - 投資家コミュニティ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-orange: #FF8C00;
+            --secondary-orange: #FFA500;
+            --light-orange: #FFE0B2;
+            --dark-orange: #E65100;
+            --line-green: #06C755;
+            --dark-blue: #1A237E;
+            --light-blue: #E8EAF6;
+            --gray-text: #616161;
+            --dark-text: #212121;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        
+        body {
+            background-color: #FFF;
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .fixed-line-btn {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: var(--line-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .fixed-line-btn:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background-color: #FF4081;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.1"/></svg>');
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 20px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        .main-heading {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent }
+        }
+        
+        .typing-effect {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 3px solid var(--light-orange);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.1em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink 0.75s step-end infinite;
+        }
+        
+        .sub-heading {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .highlight {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+        }
+        
+        .btn-line {
+            background-color: var(--line-green);
+            color: white;
+            box-shadow: 0 4px 12px rgba(6, 199, 85, 0.3);
+        }
+        
+        .btn-line:hover {
+            background-color: #05a847;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(6, 199, 85, 0.4);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-orange), var(--dark-orange));
+            border-radius: 2px;
+        }
+        
+        .benchmarks {
+            background-color: #f9f9f9;
+        }
+        
+        .benchmark-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .benchmark-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benchmark-header {
+            background: linear-gradient(90deg, var(--primary-orange), var(--dark-orange));
+            color: white;
+            padding: 15px 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .benchmark-header i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .benchmark-body {
+            padding: 20px;
+        }
+        
+        .benchmark-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-orange);
+        }
+        
+        .benchmark-desc {
+            color: var(--gray-text);
+            margin-bottom: 15px;
+        }
+        
+        .benchmark-explanation {
+            background-color: var(--light-orange);
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .benchmark-explanation::before {
+            content: '通俗解释';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background-color: var(--dark-orange);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .community {
+            background: linear-gradient(135deg, #FFF8E1, #FFF);
+        }
+        
+        .community-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--light-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--dark-orange);
+            font-size: 30px;
+        }
+        
+        .benefit-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+        
+        .benefit-desc {
+            color: var(--gray-text);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 50px 0;
+            background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange));
+            color: white;
+            margin-top: 50px;
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-desc {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            background-color: #f5f5f5;
+            padding: 40px 0;
+            color: var(--gray-text);
+        }
+        
+        .disclaimer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFF;
+            border-radius: 8px;
+            border-left: 4px solid var(--dark-orange);
+            margin-bottom: 30px;
+        }
+        
+        .disclaimer-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+        
+        .copyright {
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .main-heading {
+                font-size: 2rem;
+            }
+            
+            .fixed-line-btn {
+                right: 15px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .benefit-card {
+                min-width: 100%;
+            }
+        }
+        
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 999;
+        }
+        
+        .floating-cta-btn {
+            background: linear-gradient(90deg, var(--line-green), #05a847);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(6, 199, 85, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(6, 199, 85, 0.4);
+        }
+        
+        .floating-cta-btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed LINE Button -->
+    <div class="fixed-line-btn" onclick="opensite()">
+        <i class="fab fa-line"></i>
+        <div class="notification-badge">1</div>
+    </div>
+    
+    <!-- Floating CTA Button -->
+    <div class="floating-cta">
+        <div class="floating-cta-btn" onclick="opensite()">
+            <i class="fab fa-line"></i> LINEコミュニティに参加する
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="main-heading">
+                        <span class="typing-effect">日本株投資の五大認知基準、</span><br>
+                        あなたはいくつ知っていますか？
+                    </h1>
+                    <p class="sub-heading">
+                        投資で成功するには、<span class="highlight">市場の仕組み</span>と<span class="highlight">日本特有の投資環境</span>を理解することが不可欠です。
+                    </p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <button class="btn btn-line" onclick="opensite()">
+                            <i class="fab fa-line"></i> 投資コミュニティに参加
+                        </button>
+                        <button class="btn btn-outline" onclick="opensite()">
+                            詳細を見る
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://www.uypro.online/27.jpg" alt="日本株投資認知基準" width="500">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benchmarks Section -->
+    <section class="section benchmarks">
+        <div class="container">
+            <h2 class="section-title">日本株投資 五大認知基準</h2>
+            
+            <div class="benchmark-card">
+                <div class="benchmark-header">
+                    <i class="fas fa-chart-line"></i> 認知基準 1
+                </div>
+                <div class="benchmark-body">
+                    <h3 class="benchmark-title">市場機制、市場非対称有効性</h3>
+                    <p class="benchmark-desc">日本市場における情報の流れと価格反映には、企業規模によって大きな違いがあります。この非対称性を理解することで、投資タイミングの精度を高めることができます。</p>
+                    <div class="benchmark-explanation">
+                        <p>「大公司の株価は新しい情報を素早く消化します（例えば、トヨタの決算発表）。しかし、中小型企業では情報が株価に反映されるまでに最大48時間の認識遅延が発生することがあります。」</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benchmark-card">
+                <div class="benchmark-header">
+                    <i class="fas fa-shield-alt"></i> 認知基準 2
+                </div>
+                <div class="benchmark-body">
+                    <h3 class="benchmark-title">リスク管理、リスク補償閾値法則</h3>
+                    <p class="benchmark-desc">投資におけるリスクとリターンのバランスは、特に日本市場では独特の法則に従います。効果的なリスク管理は、長期的な投資成功の鍵となります。</p>
+                    <div class="benchmark-explanation">
+                        <p>「変動性の高い株を買うことは、高額な保険料を支払うようなものです。日本株では、1%の追加的な価格変動に対して、2.3%の追加リターンが必要になります（自動車保険で高リスクには高い保険料が必要なのと同じです）。」</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benchmark-card">
+                <div class="benchmark-header">
+                    <i class="fas fa-brain"></i> 認知基準 3
+                </div>
+                <div class="benchmark-body">
+                    <h3 class="benchmark-title">行動金融学、日本特有の三要素モデル</h3>
+                    <p class="benchmark-desc">日本市場特有の投資家行動パターンを理解することで、より合理的な投資判断が可能になります。</p>
+                    <div class="benchmark-explanation">
+                        <p>「日本株投資では、同時に三要素を考慮する必要があります：企業規模、株価の割安度、そして円相場の影響（寿司を作る際の魚、米、わさびのバランスを取るようなものです）。」</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benchmark-card">
+                <div class="benchmark-header">
+                    <i class="fas fa-database"></i> 認知基準 4
+                </div>
+                <div class="benchmark-body">
+                    <h3 class="benchmark-title">データ分析、流動性階層法則</h3>
+                    <p class="benchmark-desc">株式の流動性は投資の成否を左右する重要な要素です。日本市場における流動性の階層構造を理解することが重要です。</p>
+                    <div class="benchmark-explanation">
+                        <p>「コンビニの商品棚のようなものです。人気株（ソニーなど）はいつでも簡単に売買できますが、人気のない株（地方銀行など）は売りたい時に買い手が見つからないことがあります。」</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benchmark-card">
+                <div class="benchmark-header">
+                    <i class="fas fa-chess"></i> 認知基準 5
+                </div>
+                <div class="benchmark-body">
+                    <h3 class="benchmark-title">長期戦略、政策伝達サイクル</h3>
+                    <p class="benchmark-desc">政府の政策変更は様々なセクターに異なる影響を与えます。この伝達メカニズムを理解することで、政策変更に伴う投資機会を見極めることができます。</p>
+                    <div class="benchmark-explanation">
+                        <p>「政策感応度のランキング：金融株 ＞ 消費株 ＞ テクノロジー株」</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-line" onclick="opensite()">
+                    <i class="fab fa-line"></i> 詳しく学ぶ
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Community Section -->
+    <section class="section community">
+        <div class="container">
+            <h2 class="section-title">投資家コミュニティのメリット</h2>
+            
+            <div class="community-benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="benefit-title">集合知の力</h3>
+                    <p class="benefit-desc">
+                        3,000人以上の投資家が情報や分析を共有し、多様な視点から市場を理解できます。一人では見つけられない投資アイデアを発見できるでしょう。
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="benefit-title">実践的な学習環境</h3>
+                    <p class="benefit-desc">
+                        週3回の専門家によるマーケット分析セッションと、初心者から上級者まで対応した学習リソースで、継続的にスキルアップできます。
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="benefit-title">感情バイアスの克服</h3>
+                    <p class="benefit-desc">
+                        投資における最大の敵は自分自身の感情です。コミュニティのサポートにより、恐怖や貪欲といった感情に左右されない投資判断ができるようになります。
+                    </p>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 20px;">
+                    すでに<span style="font-weight: 700; color: var(--dark-orange);">5,230名</span>の投資家が参加しています
+                </p>
+                <button class="btn btn-line" onclick="opensite()" style="font-size: 1.1rem; padding: 15px 30px;">
+                    <i class="fab fa-line"></i> 無料のLINEコミュニティに参加する
+                </button>
+                <p style="font-size: 0.9rem; color: var(--gray-text); margin-top: 10px;">
+                    ※参加は完全無料です。いつでも退会可能です。
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">知識を共有し、共に成長しましょう</h2>
+            <p class="cta-desc">
+                私たちのコミュニティでは、情報や分析を共有し、お互いの投資スキルを高め合うことを大切にしています。市場の動向を理解し、より賢明な投資判断をするためのサポートをします。
+            </p>
+            <button class="btn btn-line" onclick="opensite()" style="font-size: 1.1rem; padding: 15px 30px;">
+                <i class="fab fa-line"></i> 今すぐコミュニティに参加する
+            </button>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="disclaimer">
+                <h3 class="disclaimer-title">重要な免責事項</h3>
+                <p>
+                    当サイトで提供される情報は、教育目的のみであり、特定の投資アドバイスではありません。株式投資には元本割れのリスクが伴います。過去のパフォーマンスは将来の結果を保証するものではありません。
+                </p>
+                <p style="margin-top: 10px;">
+                    このコミュニティは学習と情報共有の場であり、特定の投資行動を推奨するものではありません。投資判断は自己責任で行ってください。
+                </p>
+                <p style="margin-top: 10px;">
+                    当サイトは日本の金融商品取引法および関連法規に準拠して運営されています。
+                </p>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 日本株投資コミュニティ. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        function opensite() {
+            // Replace with your actual LINE URL
+            window.open('https://line.me/R/ti/p/@123abc', '_blank');
+            
+            // For testing purposes
+            // alert('LINEコミュニティに参加します');
+        }
+    </script>
+</body>
+</html>
