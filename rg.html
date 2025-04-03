@@ -85,9 +85,10 @@
         .hero-section {
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-yellow));
             color: white;
-            padding: 80px 0;
+            padding: 60px 0;
             position: relative;
             overflow: hidden;
+            min-height: auto;
         }
         
         .hero-overlay {
@@ -108,7 +109,7 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 30px;
         }
         
         .hero-text {
@@ -118,8 +119,8 @@
         
         .hero-image {
             flex: 1;
-            min-width: 300px;
-            max-width: 500px;
+            min-width: 280px;
+            max-width: 450px;
             margin: 0 auto;
             text-align: center;
         }
@@ -246,7 +247,7 @@
         
         .benchmarks {
             background-color: #F9FAFB;
-            padding: 80px 0;
+            padding: 60px 0;
             position: relative;
         }
         
@@ -263,19 +264,19 @@
         }
         
         .benchmark-container {
-            margin-top: 60px;
+            margin-top: 40px;
         }
         
         .benchmark-row {
             display: flex;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             position: relative;
         }
         
         .benchmark-row:not(:last-child)::after {
             content: '';
             position: absolute;
-            bottom: -25px;
+            bottom: -20px;
             left: 0;
             width: 100%;
             height: 1px;
@@ -283,18 +284,18 @@
         }
         
         .benchmark-number {
-            flex: 0 0 60px;
-            width: 60px;
-            height: 60px;
+            flex: 0 0 50px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-yellow));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            margin-right: 30px;
+            margin-right: 20px;
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
         }
         
@@ -303,9 +304,9 @@
         }
         
         .benchmark-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--primary-blue);
             display: flex;
             align-items: center;
@@ -314,19 +315,19 @@
         .benchmark-title i {
             margin-right: 10px;
             color: var(--primary-yellow);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         .benchmark-desc {
             color: var(--gray-text);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             line-height: 1.7;
         }
         
         .benchmark-explanation {
             background-color: var(--light-blue);
             border-left: 4px solid var(--primary-blue);
-            padding: 20px;
+            padding: 15px;
             border-radius: 0 8px 8px 0;
             position: relative;
         }
@@ -352,7 +353,7 @@
         
         .community {
             background: linear-gradient(to bottom, #F9FAFB, white);
-            padding: 80px 0;
+            padding: 60px 0;
         }
         
         .community-benefits {
@@ -366,7 +367,7 @@
         .benefit-card {
             background-color: white;
             border-radius: 16px;
-            padding: 30px;
+            padding: 25px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             flex: 1;
             min-width: 280px;
@@ -394,20 +395,20 @@
         }
         
         .benefit-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, var(--light-blue), var(--light-yellow));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
+            margin: 0 auto 20px;
             color: var(--primary-blue);
-            font-size: 32px;
+            font-size: 28px;
         }
         
         .benefit-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 15px;
             color: var(--dark-text);
@@ -420,21 +421,21 @@
         
         .cta-section {
             text-align: center;
-            padding: 70px 0;
+            padding: 60px 0;
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-yellow));
             color: white;
             margin-top: 0;
         }
         
         .cta-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .cta-desc {
             max-width: 700px;
-            margin: 0 auto 35px;
+            margin: 0 auto 30px;
             opacity: 0.9;
             font-size: 1.1rem;
             line-height: 1.8;
@@ -442,7 +443,7 @@
         
         .footer {
             background-color: #F9FAFB;
-            padding: 60px 0 40px;
+            padding: 50px 0 40px;
             color: var(--gray-text);
         }
         
@@ -453,7 +454,7 @@
             background-color: white;
             border-radius: 12px;
             border-left: 5px solid var(--primary-blue);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
         }
         
@@ -462,6 +463,16 @@
             margin-bottom: 15px;
             color: var(--dark-text);
             font-size: 1.2rem;
+        }
+        
+        .disclaimer-section {
+            margin-bottom: 15px;
+        }
+        
+        .disclaimer-section-title {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
         }
         
         .copyright {
@@ -473,19 +484,24 @@
         
         /* Responsive design */
         @media (max-width: 768px) {
+            .hero-section {
+                padding: 40px 0;
+            }
+            
             .hero-content {
                 flex-direction: column;
+                gap: 20px;
             }
             
             .hero-text {
                 text-align: center;
                 padding: 0;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
             
             .hero-image {
                 width: 100%;
-                max-width: 340px;
+                max-width: 300px;
             }
             
             .hero-image img {
@@ -494,23 +510,32 @@
             }
             
             .main-heading {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .sub-heading {
+                font-size: 1.1rem;
             }
             
             .fixed-line-btn {
                 right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
             }
             
             .section {
-                padding: 60px 0;
+                padding: 50px 0;
             }
             
-            .benefit-card {
-                min-width: 100%;
+            .section-title {
+                font-size: 1.7rem;
+                margin-bottom: 40px;
             }
             
             .benchmark-row {
                 flex-direction: column;
+                margin-bottom: 35px;
             }
             
             .benchmark-number {
@@ -518,23 +543,37 @@
                 margin-right: 0;
                 align-self: flex-start;
             }
+            
+            .benefit-card {
+                min-width: 100%;
+            }
         }
         
         @media (max-width: 576px) {
             .main-heading {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
+            }
+            
+            .sub-heading {
+                font-size: 1rem;
+                margin-bottom: 20px;
             }
             
             .section-title {
-                font-size: 1.7rem;
+                font-size: 1.5rem;
             }
             
             .hero-section {
-                padding: 50px 0;
+                padding: 30px 0;
             }
             
             .hero-content {
-                gap: 25px;
+                gap: 15px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
         
@@ -551,7 +590,7 @@
         .floating-cta-btn {
             background: linear-gradient(90deg, var(--line-green), #05a847);
             color: white;
-            padding: 14px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
             font-weight: 700;
             box-shadow: 0 4px 20px rgba(6, 199, 85, 0.3);
@@ -560,6 +599,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
         
         .floating-cta-btn:hover {
@@ -569,7 +609,7 @@
         
         .floating-cta-btn i {
             margin-right: 8px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
     </style>
 </head>
@@ -696,7 +736,7 @@
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 50px;">
+            <div style="text-align: center; margin-top: 40px;">
                 <button class="btn btn-line" onclick="opensite()">
                     <i class="fab fa-line"></i> 詳しく学ぶ
                 </button>
@@ -772,16 +812,32 @@
     <footer class="footer">
         <div class="container">
             <div class="disclaimer">
-                <h3 class="disclaimer-title">重要な免責事項</h3>
-                <p>
-                    当サイトで提供される情報は、教育目的のみであり、特定の投資アドバイスではありません。株式投資には元本割れのリスクが伴います。過去のパフォーマンスは将来の結果を保証するものではありません。
-                </p>
-                <p style="margin-top: 10px;">
-                    このコミュニティは学習と情報共有の場であり、特定の投資行動を推奨するものではありません。投資判断は自己責任で行ってください。
-                </p>
-                <p style="margin-top: 10px;">
-                    当サイトは日本の金融商品取引法および関連法規に準拠して運営されています。
-                </p>
+                <h3 class="disclaimer-title">重要な開示事項</h3>
+                
+                <div class="disclaimer-section">
+                    <p class="disclaimer-section-title">教育目的の提供</p>
+                    <p>当サイトで提供される情報は、純粋な教育目的のみのためであり、いかなる場合も特定の投資商品の購入や売却を推奨するものではありません。私たちは金融商品の販売や取引を行っておらず、個々の投資家の具体的な投資戦略を推薦していません。</p>
+                </div>
+                
+                <div class="disclaimer-section">
+                    <p class="disclaimer-section-title">リスク開示</p>
+                    <p>株式投資には、投資元本の損失を含む重大なリスクが伴います。過去のパフォーマンスは将来の結果を保証するものではありません。すべての投資判断は、投資家自身の財務状況、投資目標、リスク許容度を考慮した上で、ご自身の責任において行ってください。</p>
+                </div>
+                
+                <div class="disclaimer-section">
+                    <p class="disclaimer-section-title">アドバイザーの相談</p>
+                    <p>投資を行う前に、必ず独立した財務アドバイザー、税務専門家、法律専門家にご相談いただくことをお勧めします。当コミュニティの情報のみに基づいて投資判断を行わないでください。</p>
+                </div>
+                
+                <div class="disclaimer-section">
+                    <p class="disclaimer-section-title">年齢制限と適合性</p>
+                    <p>当サイトのサービスは20歳以上の方を対象としています。投資教育は、適切な年齢と理解力を持つ方のみを対象としています。</p>
+                </div>
+                
+                <div class="disclaimer-section">
+                    <p class="disclaimer-section-title">法令遵守</p>
+                    <p>本コミュニティは、日本の金融商品取引法および関連法規に完全に準拠して運営されています。当サイトのコンテンツは日本の法規制の下で提供されています。</p>
+                </div>
             </div>
             
             <div class="copyright">
